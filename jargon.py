@@ -5,9 +5,12 @@ Created on Jul 30, 2014
 '''
 import csv
 
-def read_csv(filename):
+jargonCsv = 'jargon.csv'
+jargonFile = 'test.txt'
+
+def read_csv(path):
     
-    reader = csv.reader(open(filename, 'r'), delimiter=',', quotechar='"')
+    reader = csv.reader(open(path, 'r'), delimiter=',', quotechar='"')
     reader.next()
     data = {}
      
@@ -17,10 +20,28 @@ def read_csv(filename):
         data[key] = val
         
     return data
+
+def search_jargon(path, dictionary):
+    # open and override report file
+    with open(path, 'w') as report:
+        report.write('Jargon report for '+jargonFile+'\n\n')
+        
+        with open(jargonFile) as textfile:
+            linenumber = 1
+            for line in textfile:
+                linenumber = linenumber + 1
+                for key in dictionary.keys():
+                    if key in line:
+                        report.write('Line '+str(linenumber)+': "'+key+'"')
+                        report.write(' - substitute with "'+dictionary[key]+'"?')
+        
+        report.write('\n')
         
 if __name__ == '__main__':
-    table = read_csv('jargon.csv')
+    jargonDictionary = read_csv(jargonCsv)
     
-    print table['more or less']
+    search_jargon('jargon_report.txt', jargonDictionary)
+
+        
     
     
