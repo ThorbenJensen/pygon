@@ -4,9 +4,9 @@ Created on Jul 30, 2014
 @author: thor
 '''
 import csv
+import sys
 
 jargonCsv = 'jargon.csv'
-jargonFile = 'test.txt'
 
 def read_csv(path):
     
@@ -21,27 +21,30 @@ def read_csv(path):
         
     return data
 
-def search_jargon(path, dictionary):
+def search_jargon(dictionary, jargonText):
     # open and override report file
-    with open(path, 'w') as report:
-        report.write('Jargon report for '+jargonFile+'\n\n')
+    text = 'Jargon report for '+jargonText+'\n\n'
         
-        with open(jargonFile) as textfile:
-            linenumber = 1
-            for line in textfile:
-                linenumber = linenumber + 1
-                for key in dictionary.keys():
-                    if key in line:
-                        report.write('Line '+str(linenumber)+': "'+key+'"')
-                        report.write(' - substitute with "'+dictionary[key]+'"?')
+    with open(jargonText) as textfile:
+        linenumber = 1
+        for line in textfile:
+            linenumber = linenumber + 1
+            for key in dictionary.keys():
+                if key in line:
+                    text = text + 'Line '+str(linenumber)+': "'+key+'" \n'
+                    text = text + ' - substitute with "'+dictionary[key]+'"? \n'
         
-        report.write('\n')
+    return text
         
 if __name__ == '__main__':
-    jargonDictionary = read_csv(jargonCsv)
     
-    search_jargon('jargon_report.txt', jargonDictionary)
+    jargonDictionary = read_csv(jargonCsv)
+    targetFile = sys.argv[1]
+    
+    text = search_jargon(jargonDictionary, targetFile)
 
+    print text
+    
         
     
     
