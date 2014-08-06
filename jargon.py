@@ -5,6 +5,7 @@ Created on Jul 30, 2014
 '''
 import csv
 import sys
+import re
 
 jargonCsv = 'jargon.csv'
 
@@ -30,20 +31,18 @@ def search_jargon(dictionary, jargonText):
         for line in textfile:
             linenumber = linenumber + 1
             for key in dictionary.keys():
-                if key in line:
+                if re.search(key + '[^a-z]', line, re.IGNORECASE):
                     text = text + 'Line '+str(linenumber)+': "'+key+'" \n'
                     text = text + ' - substitute with "'+dictionary[key]+'"? \n'
         
     return text
         
-if __name__ == '__main__':
+jargonDictionary = read_csv(jargonCsv)
+targetFile = sys.argv[1]
     
-    jargonDictionary = read_csv(jargonCsv)
-    targetFile = sys.argv[1]
-    
-    text = search_jargon(jargonDictionary, targetFile)
+text = search_jargon(jargonDictionary, targetFile)
 
-    print text
+print text
     
         
     
