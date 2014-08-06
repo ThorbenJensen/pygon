@@ -10,7 +10,7 @@ jargonCsv = 'jargon.csv'
 
 def read_csv(path):
     
-    reader = csv.reader(open(path, 'r'), delimiter=',', quotechar='"')
+    reader = csv.reader(open(path, 'r'), delimiter='\t', quotechar='"')
     reader.next()
     data = {}
      
