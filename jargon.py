@@ -26,7 +26,7 @@ def search_jargon(dictionary, jargonText):
     text = 'Jargon report for '+jargonText+'\n\n'
         
     with open(jargonText) as textfile:
-        linenumber = 1
+        linenumber = 0
         for line in textfile:
             linenumber = linenumber + 1
             for key in dictionary.keys():
