@@ -26,6 +26,9 @@ python jargon.py <textfile.txt>
 
 Credits
 ---
+Developer:
+
+Thorben Jensen
 
 Thanks to:
 
