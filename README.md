@@ -13,11 +13,12 @@ If you want to check your Office files, e.g. .DOC, copy and paste to .txt first.
 Installation
 ---
 
-No installation needed, simply download the project folder (see on the right) & and unzip.
+No installation needed! Simply download the project folder (see on the right) & and unzip.
 
 Use
 ---
 #### Mac OS X
+Requirement: python
 ```
 cd <jargon-folder>/src
 python jargon.py <path-to-textfile.txt>
