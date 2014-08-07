@@ -4,8 +4,8 @@
 About
 ---
 
-Jargon is a python script that detects common English jargon in your text files.
-It help you writing better.
+**Pygon** is a python script that detects common English jargon in your text files.
+It gives you siggestions to write better.
 
 So far, it works with txt files. 
 If you want to check your Office files, e.g. .DOC, copy and paste to .txt first.
