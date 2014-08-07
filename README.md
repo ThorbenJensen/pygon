@@ -4,20 +4,28 @@ Pygon - python meets jargon
 About
 ---
 
-Python is a python script that detects common English jargon in your text files.
+Jargon is a python script that detects common English jargon in your text files.
 It help you writing better.
 
 Installation
 ---
 
-TODO
+REQUIREMENTS: python needs to be installed on your machine.
+
+* Download the project & unzip
+* Browse to src folder 
+* Run jargon.py
 
 Use
 ---
 
-TODO
+```
+cd <jargon-folder>/src
+python jargon.py <textfile.txt>
+```
 
 Credits
 ---
 
-TODO
+Thanks to:
+Day, Robert, and Barbara Gastel. How to write and publish a scientific paper. Cambridge University Press, 2012.
