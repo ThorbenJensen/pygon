@@ -7,7 +7,7 @@ About
 **Pygon** is a python script that detects common English jargon in your text files.
 It gives you siggestions to write better.
 
-So far, it works with txt files. 
+So far, it works with text files only. 
 If you want to check your Office files, e.g. .DOC, copy and paste to .txt first.
 
 Installation
