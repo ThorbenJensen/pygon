@@ -1,4 +1,4 @@
-Pygon - *python* finds *jargon*!
+**Pygon** - *python* finds *jargon*!
 ===
 
 About
