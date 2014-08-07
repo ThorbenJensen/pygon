@@ -28,4 +28,5 @@ Credits
 ---
 
 Thanks to:
+
 Day, Robert, and Barbara Gastel. How to write and publish a scientific paper. Cambridge University Press, 2012.
