@@ -1,10 +1,11 @@
-Pygon - a python script detecting jargon
+Pygon - python meets jargon
 ===
 
 About
 ---
 
-TODO
+Python is a python script that detects common English jargon in your text files.
+It help you writing better.
 
 Installation
 ---
