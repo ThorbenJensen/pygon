@@ -10,14 +10,11 @@ It help you writing better.
 Installation
 ---
 
-REQUIREMENTS: python needs to be installed on your machine.
-
-* Download the project & unzip
-* Browse to src folder 
-* Run jargon.py
+No installation needed, simply download the project & unzip
 
 Use
 ---
+### test
 
 ```
 cd <jargon-folder>/src
