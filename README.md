@@ -1,4 +1,4 @@
-Pygon - python meets jargon
+Pygon - *python* finds *jargon*!
 ===
 
 About
@@ -37,5 +37,6 @@ Credits
 ---
 Developer: Thorben Jensen
 
-Special thanks to: \n
+Special thanks to:
+
 Day, Robert, and Barbara Gastel. How to write and publish a scientific paper. Cambridge University Press, 2012.
