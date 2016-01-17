@@ -3,47 +3,68 @@ Created on Jul 30, 2014
 
 @author: thor
 '''
-import csv
 import sys
-import re
+sys.path.append('../lib')
 
-jargonCsv = 'jargon.csv'
+import csv
+import re
+import docx2txt
+
+#csvFile = '/Users/thorbenje/python/pygon/src/jargon.csv'
+#fileName= '/Users/thorbenje/python/pygon/src/test.txt'
+
+csvFile = 'jargon.csv'
 
 def read_csv(path):
-    
     reader = csv.reader(open(path, 'r'), delimiter='\t', quotechar='"')
     reader.next()
     data = {}
-     
+
     for row in reader:
         key = row[0]
         val = row[1]
         data[key] = val
-        
+
     return data
 
-def search_jargon(dictionary, jargonText):
-    # open and override report file
-    text = 'Jargon report for '+jargonText+'\n\n'
-        
-    with open(jargonText) as textfile:
-        linenumber = 0
-        for line in textfile:
-            linenumber = linenumber + 1
-            for key in dictionary.keys():
-                if re.search(key + '[^a-z]', line, re.IGNORECASE):
-                    text = text + 'Line '+str(linenumber)+': "'+key+'" \n'
-                    text = text + ' - substitute with "'+dictionary[key]+'"? \n'
-        
-    return text
-        
-jargonDictionary = read_csv(jargonCsv)
-targetFile = sys.argv[1]
-    
-text = search_jargon(jargonDictionary, targetFile)
 
-print text
-    
-        
+def fileToArray(fileName):
+
+    # identify file type
+    split    = str.split(fileName,".")
+    fileType = split[len(split)-1]
+    print 'File type is ' + str(fileType) + "."
+
+    if fileType == 'docx':
+        text = docx2txt.process(fileName).splitlines()
+
+    else:
+        # here: asumming a text file
+        text = open(fileName).read().splitlines()
+
+    return text
+
+
+def search_jargon(dictionary, jargonText):
+
+    for linenumber in range(0, len(jargonText)):
+        line = jargonText[linenumber]
+
+        for key in dictionary.keys():
+            if re.search(key, line, re.IGNORECASE):
+                text = 'Line '+ str(linenumber+1) +': "'+key+'" \n'
+                text = text + ' - substitute with "'+dictionary[key]+'"? \n'
+                print text
+
+
+print 'Reading word list ...'
+jargonDictionary = read_csv(csvFile)
+
+print 'Reading text file ...'
+fileName    = sys.argv[1]
+jargonText  = fileToArray(fileName)
+
+print 'Reporting jargon for ' + fileName + ' ...\n\n'
+search_jargon(jargonDictionary, jargonText)
     
     
